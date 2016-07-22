@@ -1,41 +1,41 @@
-<!-- CHANGE COLORS -->
-
-<div class="row">
-  <div class="col s6">
-    <div class="card">
-      <div class="card-content">
-        <h2 class="center teal-text darken-2">Shoe Brands</h2>
-        <% if @brands.any?() %>
-          <% @brands.each() do |brand| %>
-            <ul class="collapsible popout" data-collapsible="accordion">
-              <li>
-                <div class="collapsible-header center"><a href="/brands/<%= brand.id() %>"><%= brand.name() %></a></div>
-                <div class="collapsible-body collection">
-                  <!-- loop through and list the shoe brands, with name linking to individual store in anchor tag like in the ingredients.erb -->
-                  <% brand.stores.each() do |store| %>
-                    <a class="collection-item center" href="/stores/<%= store.id() %>"><%= store.name() %></a>
-                  <% end %>
-                </div>
-              </li>
-            </ul>
+<div class="container">
+  <div class="row">
+    <div class="col s6">
+      <div class="card">
+        <div class="card-content">
+          <h2 class="center teal-text darken-2">Shoe Brands</h2>
+          <% if @brands.any?() %>
+            <% @brands.each() do |brand| %>
+              <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header center"><a href="/brands/<%= brand.id() %>"><%= brand.name() %></a></div>
+                  <div class="collapsible-body collection">
+                    <% brand.stores.each() do |store| %>
+                      <a class="collection-item center" href="/stores/<%= store.id() %>"><%= store.name() %></a>
+                    <% end %>
+                  </div>
+                </li>
+              </ul>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col s6">
-    <div class="card">
-      <div class="card-content">
-        <h4 class="center teal-text darken-2">Add a New Shoe Brand</h4>
-        <form action="/brands" method="post">
-          <div class="input-field">
-            <input type="text" name="name" id="name">
-            <label for="name">Name:</label>
-          </div>
+    <div class="col s6">
+      <div class="card">
+        <div class="card-content">
+          <h4 class="center teal-text darken-2">Add a New Shoe Brand</h4>
+          <form action="/brands" method="post">
+            <div class="input-field">
+              <input type="text" name="name" id="name">
+              <label for="name">Name:</label>
+            </div>
 
-          <button class="btn" type="submit">Create</button>
-        </form>
+            <button class="btn" type="submit">Create</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
+
 </div>

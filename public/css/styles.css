@@ -2,3 +2,12 @@
   background-color: inherit;
   border: none;
 }
+
+.jumbotron {
+  background-image: url('../../img/running.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+}

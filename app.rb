@@ -91,7 +91,7 @@ post('/brands') do
   if @brand.save()
     redirect("/brands")
   else
-    erb(:errors)
+    erb(:brand_errors)
   end
 end
 
