@@ -1,0 +1,62 @@
+<!--  change colors -->
+
+<div class="row">
+  <div class="col s6">
+    <div class="card">
+      <div class="card-content">
+        <h2 class="center">Stores</h2>
+        <% if @stores.any?() %>
+          <% @stores.each() do |store| %>
+            <ul class="collapsible popout" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header center"><%= store.name() %> Shoes <a href="/stores/<%= store.id() %>/edit"><i class="material-icons">edit</i></a></div>
+                <div class="collapsible-body collection">
+                  <!-- loop through and list the stores shoes, with name linking to individual shoe in anchor tag -->
+                </div>
+              </li>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col s6">
+    <div class="card">
+      <div class="card-content">
+        <h4 class="center">Add a New Store</h4>
+        <form action="/stores" method="post">
+          <div class="input-field">
+            <input type="text" name="name" id="name">
+            <label for="name">Name of Store:</label>
+          </div>
+          <div class="input-field">
+            <input type="text" name="street" id="street">
+            <label for="street">Street</label>
+          </div>
+          <div class="input-field">
+            <input type="text" name="city" id="city">
+            <label for="city">City:</label>
+          </div>
+          <div class="input-field">
+            <input type="text" name="state" id="state">
+            <label for="state">State:</label>
+          </div>
+          <div class="input-field">
+            <input type="text" name="zip" id="zip">
+            <label for="zip">Zip:</label>
+          </div>
+          <div class="input-field">
+            <input type="text" name="phone_number" id="phone_number">
+            <label for="phone_number">Phone Number:</label>
+          </div>
+          <div class="input-field">
+            <input type="text" name="owner" id="owner">
+            <label for="owner">Owner:</label>
+          </div>
+
+          <button class="btn" type="submit">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
