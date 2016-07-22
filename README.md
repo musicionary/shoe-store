@@ -6,7 +6,7 @@
 
 Application: Ruby, Sinatra, ActiveRecord<br>
 Testing: RSpec, Capybara, ActiveRecord<br>
-Database: Postgres
+Database: Postgres<br>
 Framework: Materialize CSS
 
 Installation
