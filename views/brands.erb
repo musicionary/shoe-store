@@ -9,10 +9,12 @@
           <% @brands.each() do |brand| %>
             <ul class="collapsible popout" data-collapsible="accordion">
               <li>
-                <!-- Add link to edit shoe brand -->
                 <div class="collapsible-header center"><a href="/brands/<%= brand.id() %>"><%= brand.name() %></a></div>
                 <div class="collapsible-body collection">
                   <!-- loop through and list the shoe brands, with name linking to individual store in anchor tag like in the ingredients.erb -->
+                  <% brand.stores.each() do |store| %>
+                    <a class="collection-item center" href="/stores/<%= store.id() %>"><%= store.name() %></a>
+                  <% end %>
                 </div>
               </li>
             </ul>

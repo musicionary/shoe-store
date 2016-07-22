@@ -1,9 +1,42 @@
 <!-- CHANGE COLORS -->
 <div class="row valign-wrapper">
   <div class="">
-    <h1 class="teal-text darken-2 valign"><%= @store.name() %></h1>
-  </div>
-  <div class="">
     <a class="btn amber valign" href="/stores/<%= @store.id() %>/edit">Edit</a>
   </div>
 </div>
+
+<h1 class="teal-text darken-2 valign"><%= @store.name() %></h1>
+<div class="row">
+  <% if @store.brands.any?() %>
+    <% @store.brands.each() do |brand| %>
+      <div class="col s4">
+        <div class="card grey lighten-4 hoverable">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<%= url('img/pancakes.jpeg') %>" alt="A flashy shoe" />
+            <span class="card-title activator"></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">
+              <a href="/brands/<%= brand.id() %>"><%= brand.name() %></a>
+              <i class="material-icons right">close</i>
+            </span>
+            <hr>
+            <br>
+            <div class="row">
+              <div class="col s6">
+              </div>
+            </div>
+          </div>
+          <div class="card-action valign-wrapper">
+            <h5><%= brand.name() %></h5>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h4>You do not have any recipes. <i class="material-icons">thumb_down</i></h4>
+  <% end %>
+</div>
+
+<a class="btn deep-purple darken-3" href="/brands">Add a New Brand</a>
