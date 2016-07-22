@@ -6,6 +6,10 @@ get('/') do
   erb(:index)
 end
 
+#########################
+# stores
+#########################
+
 get('/stores') do
   @stores = Store.all()
   erb(:stores)
@@ -21,7 +25,11 @@ post('/stores') do
   owner = params[:owner]
 
   @store = Store.create({name: name, street: street, city: city, state: state, zip: zip, phone_number: phone_number, owner: owner})
-  redirect("/stores")
+  if @store.save()
+    redirect("/stores")
+  else
+    erb(:errors)
+  end
 end
 
 get('/stores/:id') do
@@ -43,13 +51,41 @@ patch('/stores/:id') do
   zip = params[:zip]
   phone_number = params[:phone_number]
   owner = params[:owner]
-
   @store.update({name: name, street: street, city: city, state: state, zip: zip, phone_number: phone_number, owner: owner})
-  redirect("/stores/#{@store.id()}")
+  if @store.save()
+    redirect("/stores")
+  else
+    erb(:errors)
+  end
 end
 
 delete('/stores/:id') do
   @store = Store.find(params[:id])
   @store.destroy()
   redirect('/stores')
+end
+
+
+#########################
+# brands
+#########################
+
+get('/brands') do
+  @brands = Store.all()
+  erb(:brands)
+end
+
+post('/brands') do
+  name = params[:name]
+  @brand = Brand.create({name: name})
+  if @brand.save()
+    redirect("/brands")
+  else
+    erb(:errors)
+  end
+end
+
+get('/brands/:id') do
+  @brand = Brand.find(params['id'])
+  erb(:store)
 end

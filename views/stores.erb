@@ -9,13 +9,22 @@
           <% @stores.each() do |store| %>
             <ul class="collapsible popout" data-collapsible="accordion">
               <li>
-                <div class="collapsible-header center"><a href="/stores/<%= store.id() %>"><%= store.name() %> Shoes </a><a href="/stores/<%= store.id() %>/edit"><i class="material-icons">edit</i></a></div>
+                <div class="collapsible-header center">
+                  <form class="left" id="<%= store.id() %>" action="/stores/<%= store.id() %>" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <a href="#" onclick="document.getElementById('<%= store.id() %>').submit(); return false;"><i class="material-icons">delete</i></a>
+                  </form>
+                  <a href="/stores/<%= store.id() %>/edit"><i class="material-icons">edit</i></a>
+                  <a href="/stores/<%= store.id() %>"><%= store.name() %></a>
+                </div>
                 <div class="collapsible-body collection">
                   <!-- loop through and list the stores shoes, with name linking to individual shoe in anchor tag -->
                 </div>
               </li>
             </ul>
           <% end %>
+        <% else %>
+          <h5>There aren't any stores yet.  Please add a store.</h5>
         <% end %>
       </div>
     </div>
