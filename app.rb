@@ -87,5 +87,5 @@ end
 
 get('/brands/:id') do
   @brand = Brand.find(params['id'])
-  erb(:store)
+  erb(:brand)
 end
