@@ -1,1 +1,9 @@
-<h1><%= @store.name() %></h1>
+<!-- CHANGE COLORS -->
+<div class="row valign-wrapper">
+  <div class="">
+    <h1 class="teal-text darken-2 valign"><%= @store.name() %></h1>
+  </div>
+  <div class="">
+    <a class="btn amber valign" href="/stores/<%= @store.id() %>/edit">Edit</a>
+  </div>
+</div>

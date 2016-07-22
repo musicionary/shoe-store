@@ -1,0 +1,40 @@
+<form class="" action="/stores/<%= @store.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <div class="input-field">
+    <input type="text" name="name" id="name">
+    <label for="name">Name of Store:</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="street" id="street">
+    <label for="street">Street</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="city" id="city">
+    <label for="city">City:</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="state" id="state">
+    <label for="state">State:</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="zip" id="zip">
+    <label for="zip">Zip:</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="phone_number" id="phone_number">
+    <label for="phone_number">Phone Number:</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="owner" id="owner">
+    <label for="owner">Owner:</label>
+  </div>
+
+  <div class="">
+    <h4>Add a shoe brand to this store:</h4>
+    <!-- loop through each shoe brand like on recipes/tags-->
+    <!-- see if you can get checkboxes working-->
+  </div>
+
+  <button class="btn" type="submit">Edit Store</button>
+</form>

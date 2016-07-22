@@ -9,7 +9,7 @@
           <% @stores.each() do |store| %>
             <ul class="collapsible popout" data-collapsible="accordion">
               <li>
-                <div class="collapsible-header center"><%= store.name() %> Shoes <a href="/stores/<%= store.id() %>/edit"><i class="material-icons">edit</i></a></div>
+                <div class="collapsible-header center"><a href="/stores/<%= store.id() %>"><%= store.name() %> Shoes </a><a href="/stores/<%= store.id() %>/edit"><i class="material-icons">edit</i></a></div>
                 <div class="collapsible-body collection">
                   <!-- loop through and list the stores shoes, with name linking to individual shoe in anchor tag -->
                 </div>

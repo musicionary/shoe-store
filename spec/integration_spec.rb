@@ -25,13 +25,13 @@ describe("the stores path", {:type => :feature}) do
     click_on('Create')
     expect(page).to have_content("John's New Shoes Plus")
   end
-  #
-  # it('should let you edit a tag name') do
-  #   test_tag = Tag.create({name: "Mexican"})
-  #   visit("/tags/#{test_tag.id()}")
-  #   click_on("Edit")
-  #   fill_in('name', :with => "Chinese")
-  #   click_on("Edit Tag")
-  #   expect(page).to have_content("Chinese")
-  # end
+
+  it('should let you edit a store name') do
+    test_store = Store.create({name: "John's New Shoes Plus", street: "123 Main Street", city: "Lexington", state: "KY", zip: "40506", phone_number: "555-123-1234", owner: "Franz Schubert"})
+    visit("/stores/#{test_store.id()}")
+    click_on("Edit")
+    fill_in('name', :with => "Road Runner Shoes")
+    click_on("Edit Store")
+    expect(page).to have_content("Road Runner Shoes")
+  end
 end
