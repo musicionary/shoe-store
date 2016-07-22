@@ -34,16 +34,19 @@ end
 
 get('/stores/:id') do
   @store = Store.find(params['id'])
+  @brands = Brand.all()
   erb(:store)
 end
 
 get('/stores/:id/edit') do
   @store = Store.find(params[:id])
+  @brands = Brand.all()
   erb(:store_edit)
 end
 
 patch('/stores/:id') do
   @store = Store.find(params[:id])
+  @brands = Brand.all()
   name = params[:name]
   street = params[:street]
   city = params[:city]
@@ -51,9 +54,16 @@ patch('/stores/:id') do
   zip = params[:zip]
   phone_number = params[:phone_number]
   owner = params[:owner]
+  @brands.each() do |brand|
+    brand_id = params["#{brand.id()}"]
+    if brand_id
+      brand = Brand.find((brand_id).to_i())
+      @store.brands.push(brand)
+    end
+  end
   @store.update({name: name, street: street, city: city, state: state, zip: zip, phone_number: phone_number, owner: owner})
   if @store.save()
-    redirect("/stores")
+    redirect("/stores/#{@store.id()}")
   else
     erb(:errors)
   end

@@ -1,40 +1,58 @@
-<form class="" action="/stores/<%= @store.id() %>" method="post">
-  <input type="hidden" name="_method" value="patch">
+<div class="row">
+  <div class="col s10 offset-s1">
+    <div class="card">
+      <div class="card-content">
+        <h3 class="center">Edit <%= @store.name() %></h3>
+        <form class="" action="/stores/<%= @store.id() %>" method="post">
+          <input type="hidden" name="_method" value="patch">
+          <div class="row">
+            <div class="col s6">
+              <div>
+                <label for="name">Name of Store:</label>
+                <input type="text" name="name" id="name">
+              </div>
+              <div>
+                <label for="street">Street</label>
+                <input type="text" name="street" id="street">
+              </div>
+              <div>
+                <label for="city">City:</label>
+                <input type="text" name="city" id="city">
+              </div>
+              <div>
+                <label for="state">State:</label>
+                <input type="text" name="state" id="state">
+              </div>
+            </div>
+            <div class="col s6">
+              <div>
+                <label for="zip">Zip:</label>
+                <input type="text" name="zip" id="zip">
+              </div>
+              <div>
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" name="phone_number" id="phone_number">
+              </div>
+              <div>
+                <label for="owner">Owner:</label>
+                <input type="text" name="owner" id="owner">
+              </div>
 
-  <div class="input-field">
-    <input type="text" name="name" id="name">
-    <label for="name">Name of Store:</label>
+              <div class="">
+                <h5>Add a shoe brand to this store:</h5>
+                <!-- see if you can get checkboxes working-->
+                <% @brands.each() do |brand| %>
+                  <% if @store.brands().include?(brand) == false %>
+                    <input type="checkbox" name="<%= brand.id() %>" id="<%= brand.id() %>" value="<%= brand.id() %>">
+                    <label for="<%= brand.id() %>"><%= brand.name() %></label>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <button class="btn" type="submit">Edit Store</button>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="input-field">
-    <input type="text" name="street" id="street">
-    <label for="street">Street</label>
-  </div>
-  <div class="input-field">
-    <input type="text" name="city" id="city">
-    <label for="city">City:</label>
-  </div>
-  <div class="input-field">
-    <input type="text" name="state" id="state">
-    <label for="state">State:</label>
-  </div>
-  <div class="input-field">
-    <input type="text" name="zip" id="zip">
-    <label for="zip">Zip:</label>
-  </div>
-  <div class="input-field">
-    <input type="text" name="phone_number" id="phone_number">
-    <label for="phone_number">Phone Number:</label>
-  </div>
-  <div class="input-field">
-    <input type="text" name="owner" id="owner">
-    <label for="owner">Owner:</label>
-  </div>
-
-  <div class="">
-    <h4>Add a shoe brand to this store:</h4>
-    <!-- loop through each shoe brand like on recipes/tags-->
-    <!-- see if you can get checkboxes working-->
-  </div>
-
-  <button class="btn" type="submit">Edit Store</button>
-</form>
+</div>
