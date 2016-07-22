@@ -10,4 +10,9 @@
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+  margin-top: -35px;
+}
+
+.jumbotron h1 {
+  padding-top: 150px;
 }
