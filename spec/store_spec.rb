@@ -29,4 +29,13 @@ describe(Store) do
     store = Store.new({:owner => ""})
     expect(store.save()).to(eq(false))
   end
+
+  it('should have many brands') do
+    store = Store.create({name: "John's New Shoes Plus", street: "123 Main Street", city: "Lexington", state: "KY", zip: "40506", phone_number: "555-123-1234", owner: "Franz Schubert"})
+    brand = Brand.create({:name => "brooks"})
+    brand2 = Brand.create({:name => "asics"})
+    store.brands.push(brand)
+    store.brands.push(brand2)
+    expect(store.brands()).to(eq([brand, brand2]))
+  end
 end
