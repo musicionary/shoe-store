@@ -41,7 +41,6 @@
 
                 <div class="">
                   <h5>Add a shoe brand to this store:</h5>
-                  <!-- see if you can get checkboxes working-->
                   <% @brands.each() do |brand| %>
                     <% if @store.brands().include?(brand) == false %>
                       <input type="checkbox" name="<%= brand.id() %>" id="<%= brand.id() %>" value="<%= brand.id() %>">

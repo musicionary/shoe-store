@@ -39,14 +39,13 @@
     <% end %>
   </div>
 
-  <!-- <a class="btn deep-purple darken-3" href="/brands">Add a New Brand</a> -->
-    <% @brands.each() do |brand| %>
-      <% if @store.brands().include?(brand) == false %>
-      <form class="" action="/stores/<%= @store.id() %>/brands" method="post">
-        <input type="hidden" name="_method" value="patch">
-        <input type="checkbox" name="<%= brand.id() %>" id="<%= brand.id() %>" value="<%= brand.id() %>">
-        <label for="<%= brand.id() %>"></label>
-        <button class="btn small" type="submit">Add <%= brand.name() %></button>
-      <% end %>
+  <% @brands.each() do |brand| %>
+    <% if @store.brands().include?(brand) == false %>
+    <form class="" action="/stores/<%= @store.id() %>/brands" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <input type="checkbox" name="<%= brand.id() %>" id="<%= brand.id() %>" value="<%= brand.id() %>">
+      <label for="<%= brand.id() %>"></label>
+      <button class="btn small" type="submit">Add <%= brand.name() %></button>
     <% end %>
+  <% end %>
 </div>
